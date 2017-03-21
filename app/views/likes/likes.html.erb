@@ -1,10 +1,9 @@
-<%= current_user.likes %>
 <h1>Welcome to likes page</h1>
 <p></p>
 
 <%= form_tag do %>
 <%= check_box_tag(:like_acoustic) %>
-<%= label_tag(:like_acoustic, "Acoustic\n") %>
+<%= label_tag(:like_acoustic, "Acoustic") %>
 
 <%= check_box_tag(:like_altcountry) %>
 <%= label_tag(:like_altcountry, "Alt-Country ") %>
@@ -364,5 +363,7 @@
 
 <%= check_box_tag(:like_world) %>
 <%= label_tag(:like_world, "World") %>
+<p></p>
+<%= submit_tag("Save") %>
+<%end%>
 
-<%end%> 
