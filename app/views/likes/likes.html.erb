@@ -19,15 +19,22 @@
 	"Synthpop", "Synthwave", "Techno", "Thrash", "Trance", "Trap", "Trip Hop", 
 	"Vaporwave", "Video Game Music", "Witch House", "World"] %>
 <p></p>
-<% current_user.likes.split("").each_with_index do |like,index| %>
-	<%= check_box_tag 'likes[#{index}]', !like.to_i.zero?, !like.to_i.zero? %>
+<%= form_tag do %>
+	<script>
+		window.userLikes = "<%= current_user.likes %>"
+		console.log(window.userLikes)
+	</script>
+	<% current_user.likes.split("").each_with_index do |like,index| %>
+		<%= check_box_tag "likes[#{index}]", !like.to_i.zero?, !like.to_i.zero?, class: 'likes_check', data: {id: index } %>
 
-	<%= label_tag 'likes', likenames[index]%>
-	<% if index == 7 || index == 17 || index ==  26 || index == 34                                                                      || index == 43 || index == 53 || index == 64 || index == 73                                                                    	|| index == 81 || index == 91 || index == 100 ||index == 110 %>
-			<p></p>
+		<%= label_tag 'likes', likenames[index]%>
+		<% if index == 7 || index == 17 || index ==  26 || index == 34                                                                      || index == 43 || index == 53 || index == 64 || index == 73                                                                    	|| index == 81 || index == 91 || index == 100 ||index == 110 %>
+				<p></p>
 		<%end%>
+	<% end %>
 
-	<%end%>
 	<p></p>
-	<%= submit_tag "Save" %>
+	<%= submit_tag "Save", id: 'submit_button' %>
+<%end%>
+<p></p>
 
