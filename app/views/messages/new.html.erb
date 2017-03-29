@@ -1,4 +1,4 @@
-<h1>Welcome to rec page<h1>
+<h1>Welcome to rec page</h1>
 <%
 values = User.pluck(:likes)
 names = User.pluck(:username)
@@ -58,6 +58,21 @@ top_scores.compact!
 	<li><%= names[nameindex[1] - 1] %></li>
 	<li><%= names[nameindex[2] - 1] %></li> 
 </ol>
+
 <% else %>
 	<p>Sorry not enough users to recommend you anyone </p>
+<%end%>
+
+<% if values.length >= 4 %>
+<%= form_for(@message) do |f| %>
+	<%= f.label "Username" %>
+	<p></p>
+	<%= f.text_field_tag "Username" %>
+	<br>
+	<%= f.label "Message" %>
+	<p></p>
+	<%= f.text_field :body %>
+	<p></p>
+	<%= f.submit "submit" %>
+<%end%>
 <%end%>

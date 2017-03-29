@@ -1,0 +1,10 @@
+<%= form_for(@message, url: "/messages/reply") do |f| %>
+	<br>
+	<%= f.hidden_field_tag "sender Id", "#{@to_reply.id}" %>
+	<%= f.hidden_field_tag "reply Id", "#{@message.reply_id}" %>
+	<%= f.label "Message" %>
+	<p></p>
+	<%= f.text_field :body %>
+	<p></p>
+	<%= f.submit "submit" %>
+<%end%>
