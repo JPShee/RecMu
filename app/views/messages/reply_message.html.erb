@@ -4,7 +4,7 @@
 	<%= f.hidden_field_tag "reply Id", "#{@message.reply_id}" %>
 	<%= f.label "Message" %>
 	<p></p>
-	<%= f.text_field :body %>
+	<%= f.text_area :body, style: 'width: 75%; height: 100px; text-align: left;'%>
 	<p></p>
 	<%= f.submit "submit" %>
 <%end%>

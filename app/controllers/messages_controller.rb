@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 		if user 
 			@message.reply_id = user.id
 			if @message.save 
-				redirect_to '/messages'
+				redirect_to '/messages/new', notice: "Message Sent!"
 			else
 				redirect_to '/message/new', notice: "Message not created"
 			end
