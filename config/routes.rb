@@ -15,3 +15,4 @@ Rails.application.routes.draw do
 	post "/app/likes", to: "likes#create", as: "submit_likes"
 	get "/messages/replied", to: "messages#replied_messages"
 end
+
