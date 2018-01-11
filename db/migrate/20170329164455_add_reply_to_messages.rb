@@ -3,3 +3,4 @@ class AddReplyToMessages < ActiveRecord::Migration[5.0]
     add_column :messages, :replied, :boolean, default: false
   end
 end
+
